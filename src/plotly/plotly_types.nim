@@ -223,6 +223,8 @@ type
     range*: tuple[start, stop: float]
     # oposite of showticklabels
     hideticklabels*: bool
+    gridColor*: Color
+    gridWidth*: int
 
   Annotation* = ref object
     x*: float
