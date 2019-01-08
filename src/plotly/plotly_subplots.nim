@@ -173,9 +173,9 @@ proc handlePlotStmt(plt: NimNode): (NimNode, NimNode) =
     of nnkAsgn:
       # for assignment RHS is single expr
       domain.add handleDomain(plt[i][0], plt[i][1])
-    of nnkDotExpr:
-      # assume the user accesses some object storing a domain of
-      # either type `Domain` or `DomainAlt`, take as is
+    of nnkDotExpr, nnkBracketExpr, nnkIdent:
+      # assume the user accesses some object, array or identifier
+      # storing a domain of either type `Domain` or `DomainAlt`
       domain = plt[i]
       isSymbol = true
     else:
