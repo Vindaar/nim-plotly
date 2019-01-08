@@ -320,7 +320,8 @@ func `%`*(t: Trace): JsonNode =
     if t.xs.len > 0:
       fields.parseBarFields(t)
   else:
-    discard
+    if t.lineWidth > 0:
+      fields["line"] = %* {"width": t.lineWidth}
 
   if t.xs_err != nil:
     fields["error_x"] = % t.xs_err
