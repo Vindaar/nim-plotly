@@ -247,6 +247,7 @@ proc legendLocation*[T](plt: Plot[T], x, y: float): Plot[T] =
   result = plt
   if result.layout.legend == nil:
     result.layout.legend = Legend()
+    result.layout.showLegend = true
   result.layout.legend.x = x
   result.layout.legend.y = y
 
@@ -254,24 +255,28 @@ proc legendBgColor*[T](plt: Plot[T], color: Color): Plot[T] =
   result = plt
   if result.layout.legend == nil:
     result.layout.legend = Legend()
-  result.layout.legend.bgcolor = color
+    result.layout.showLegend = true
+  result.layout.legend.backgroundColor = color
 
 proc legendBorderColor*[T](plt: Plot[T], color: Color): Plot[T] =
   result = plt
   if result.layout.legend == nil:
     result.layout.legend = Legend()
+    result.layout.showLegend = true
   result.layout.legend.borderColor = color
 
 proc legendBorderWidth*[T](plt: Plot[T], width: int): Plot[T] =
   result = plt
   if result.layout.legend == nil:
     result.layout.legend = Legend()
+    result.layout.showLegend = true
   result.layout.legend.borderWidth = width
 
 proc legendOrientation*[T](plt: Plot[T], orientation: Orientation): Plot[T] =
   result = plt
   if result.layout.legend == nil:
     result.layout.legend = Legend()
+    result.layout.showLegend = true
   result.layout.legend.orientation = orientation
 
 proc gridWidthX*[T](plt: Plot[T], width: int): Plot[T] =
